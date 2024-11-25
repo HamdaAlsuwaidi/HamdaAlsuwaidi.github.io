@@ -1,0 +1,40 @@
+ body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    color: pink;
+    text-align: center;
+    text-shadow: 2px 2px 5px yellow;
+}
+
+#question {
+    color: blue;
+    font-size: 24px;
+    font-family: 'Times New Roman';
+    font-weight: bold;
+}
+
+#answer {
+    color: red;
+    font-weight: bold;
+}
+
+#feedback {
+    color: green;
+    font-size: 24px;
+    font-family: 'Times New Roman';
+    font-weight: bold;
+}
+
+#celebration-images img {
+    display: none;
+    width: 150px; 
+    margin: 10px;
+}
+
+#celebration-images {
+    margin-top: 20px;
+}
