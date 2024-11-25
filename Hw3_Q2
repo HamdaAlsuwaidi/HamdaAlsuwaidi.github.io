@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .feedback {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        #celebration-images img {
+            display: none; /* Hide all images initially */
+            width: 100px; /* Set image size if needed */
+        }
+    </style>
+</head>
+<body>
+    <h1>Multiplication Practice</h1>
+    <p id="question"></p>
+    <input type="text" id="answer" placeholder="Your answer here">
+    <button onclick="check()">Check</button>
+    <div class="feedback" id="feedback"></div>
+
+    <!-- Container for celebration images -->
+    <div id="celebration-images">
+   
+         <img   id="celebration-image1" "g1.gif" alt="celebrate1">
+          <img   id="celebration-image1" src="https://github.com/HamdaAlsuwaidi/HamdaAlsuwaidi.github.io
+/raw/main/images/g2.gif" alt="celebrate2">
+ <img   id="celebration-image1" src="https://github.com/HamdaAlsuwaidi/HamdaAlsuwaidi.github.io
+/raw/main/images/g3.gif" alt="celebrate3">
+    </div>
+    </div>
+    </div>
+
+    <script>
+        var num1, num2;
+
+        function Question() {
+            num1 = Math.floor(Math.random() * 9) + 1; 
+            num2 = Math.floor(Math.random() * 9) + 1;
+
+            // Update question text
+            document.getElementById("question").textContent = "How much is " + num1 + " times " + num2 + "?";
+
+            // Clear the input field for the next answer
+            document.getElementById("answer").value = ""; 
+        }
+
+        // Check the student's answer
+        function check() {
+            var userinput = parseInt(document.getElementById("answer").value);
+            var Answer = num1 * num2;
+
+            // Clear previous feedback and hide all images
+            document.getElementById("feedback").textContent = "";
+            hideCelebrationImages();
+
+            if (userinput === Answer) {
+                var correctFeedback = CorrectAnswer();
+                document.getElementById("feedback").textContent = correctFeedback;
+                showCelebrationImage(); // Show a celebration image when the answer is correct
+                Question(); // Generate a new question after showing the celebration image
+            } else {
+                var incorrect = IncorrectAnswer();
+                document.getElementById("feedback").textContent = incorrect;
+            }
+        }
+
+        // Function to show a random celebration image
+        function showCelebrationImage() {
+            var randomIndex = Math.floor(Math.random() * 3) + 1; // Choose a random number between 1 and 3
+
+            // Display the randomly chosen image
+            document.getElementById("celebration-image" + randomIndex).style.display = "block";
+        }
+
+        // Function to hide all celebration images
+        function hideCelebrationImages() {
+            for (var i = 1; i <= 3; i++) {
+                document.getElementById("celebration-image" + i).style.display = "none";
+            }
+        }
+
+        // Generate random feedback for correct answers
+        function CorrectAnswer() {
+            var GoodWords = [
+                "Very good!",
+                "Excellent!",
+                "Nice work!",
+                "Keep up the good work!"
+            ];
+            var randomIndex = Math.floor(Math.random() * GoodWords.length);
+            return GoodWords[randomIndex];
+        }
+
+        // Generate random feedback for incorrect answers
+        function IncorrectAnswer() {
+            var TryAgainWords = [
+                "No. Please try again.",
+                "Wrong. Try once more.",
+                "Don't give up!",
+                "No. Keep trying."
+            ];
+            var randomIndex = Math.floor(Math.random() * TryAgainWords.length);
+            return TryAgainWords[randomIndex];
+        }
+
+        // Initialize the first question
+        Question();
+    </script>
+</body>
+</html>
